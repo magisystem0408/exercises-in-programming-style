@@ -1,7 +1,8 @@
 from keras.models import Sequential
 from keras.layers import Dense, SimpleRNN
 import numpy as np
-import sys, os, string, random
+import sys, os, string
+import secrets
 
 characters = string.printable
 char_indices = dict((c, i) for i, c in enumerate(characters))
@@ -37,7 +38,7 @@ def input_generator(nsamples):
     def generate_line():
         inline = [' ']; outline = []
         for _ in range(nsamples):
-            c = random.choice(characters) 
+            c = secrets.choice(characters) 
             expected = c.lower() if c in string.ascii_letters else ' ' 
             inline.append(c); outline.append(expected)
         inline.append(' '); 
