@@ -48,7 +48,7 @@ word_freqs = touchopen('word_freqs', 'rb+')
 f = open(sys.argv[1], 'r')
 # Loop over input file's lines
 while True:
-    data[1] = [f.readline()] 
+    data[1] = [f.readline(5_000_000)] 
     if data[1] == ['']: # end of input file
         break
     if data[1][0][len(data[1][0])-1] != '\n': # If it does not end with \n
