@@ -4,7 +4,8 @@ from keras.layers import Input, Dense
 from keras.utils import plot_model
 
 import numpy as np
-import sys, os, string, random
+import sys, os, string
+import secrets
 
 characters = sorted(string.printable)
 char_indices = dict((c, i) for i, c in enumerate(characters))
@@ -39,7 +40,7 @@ def build_model():
 
 def input_generator(nsamples):
     def generate_char():
-        input_data = random.choice(characters) 
+        input_data = secrets.choice(characters) 
         expected = input_data.lower() if input_data in string.ascii_letters else ' ' 
         return input_data, expected
 
